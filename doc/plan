@@ -1,0 +1,18 @@
+plan:
+	as of writing this, i have 3.5 weeks to complete the first version of the app. 
+
+	initial release: since i think that it is essential to get the app out there in use right as the semester starts (as that's when there is the most free food), it will initially only be for iowa state. 
+		essential features: 
+			you can see a list of food sites, current and future
+			you can make an account and add food sites
+			it is ok for location to be plain text
+
+		features to add as quickly as possible:
+			reputation: each time a user reports that a site really exists or doesn't, the poster's reputation will be updated
+			save each new location as a location object
+			ads
+
+		later:
+			detect coordinates and find closest colleges or allow to add new college
+
+	

@@ -1,0 +1,13 @@
+TODO: 
+	how to deal with proof images / website
+
+
+info:
+	user rep is float [0, 1]
+
+
+UI: In order from most recent
+Data incoming from server: list of sites, each with location, user, time date start time range, food desc, 
+Main ui is a list of sites (until expanded for multiple colleges) 
+
+

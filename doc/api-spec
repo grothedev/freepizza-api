@@ -1,0 +1,18 @@
+
+common user usage:
+GET sites : returns list of all sites currently active (happening now or in future)
+GET sites/{id} : returns that specific site
+GET sites/locations/{id} : returns all sites at that location
+GET users/{id} : returns data of that user (ex: to see reputation)
+GET users : returns list of all users
+
+
+poster usage:
+POST sites : adds a new site
+POST locations : adds a new location
+POST users : creates user account
+DELETE users/{id} : deletes user
+PUT users/{id} : updates user info
+DELETE sites/{id} : deletes site
+
+
