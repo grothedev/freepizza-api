@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->float('rep');
+            $table->string('api_token', 60)->unique();
         });
     }
 

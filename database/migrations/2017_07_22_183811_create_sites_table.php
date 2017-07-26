@@ -30,8 +30,8 @@ class CreateSitesTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             
-            $table->integer('votes_total');
-            $table->integer('votes_true'); 
+            $table->integer('votes_total')->default(0);
+            $table->integer('votes_true')->default(0); 
 
             $table->timestamps();
         });

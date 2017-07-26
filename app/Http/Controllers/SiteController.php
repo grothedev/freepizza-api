@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Site;
 use Illuminate\Http\Request;
 
+use Auth;
+
 class SiteController extends Controller
 {
     /**
@@ -35,7 +37,22 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'food' => 'required|max:255|min:1',
+            'info' => 'required|max:2048|min:1',
+            'day' => 'required',
+            'start' => 'required',
+            'end' => 'required',
+            'location' => 'required|max:512'
+        ]);
+
+        //$site = $request->input('site');
+
+        //TODO figure this shit out
+        $data = $request->all();
+        $data->user_id = Auth::guard('api')->id();
+        return Site::create($data);
+
     }
 
     /**
