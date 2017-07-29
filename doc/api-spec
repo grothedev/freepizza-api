@@ -7,7 +7,7 @@ GET users/{id} : returns data of that user (ex: to see reputation)
 GET users : returns list of all users
 
 
-poster usage:
+poster usage: all of these need the auth middleware
 POST sites : adds a new site
 POST locations : adds a new location
 POST users : creates user account

@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        //not used for API
     }
 
     /**
@@ -37,7 +37,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //handled in register default auth controller
     }
 
     /**
@@ -59,7 +59,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        //not used for API 
     }
 
     /**
@@ -71,7 +71,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        //TODO what data can the user update about themselves
     }
 
     /**
@@ -82,6 +82,6 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        //TODO
     }
 }

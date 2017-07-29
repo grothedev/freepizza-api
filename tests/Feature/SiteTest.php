@@ -28,6 +28,17 @@ class SiteTest extends TestCase
 		var_dump($response);
 
         $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function testIndex(){
+
+    }
+
+    public function testShow(){
+
+    }
+
+    public function testDelete(){
         
     }
 }

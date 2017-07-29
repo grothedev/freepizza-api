@@ -180,6 +180,8 @@ return [
         //Jenssegers\Mongodb\MongodbServiceProvider::class,
 
         //App\Mongo\ServiceProvider::class,
+
+        //Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*

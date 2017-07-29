@@ -26,7 +26,7 @@ class SiteController extends Controller
      */
     public function create()
     {
-        //
+        //not used in API
     }
 
     /**
@@ -46,12 +46,26 @@ class SiteController extends Controller
             'location' => 'required|max:512'
         ]);
 
-        //$site = $request->input('site');
+        $data = [
+            'food' => $request->food,
+            'info' => $request->info,
+            'day' => $request->day,
+            'start' => $request->start,
+            'end' => $request->end,
+            'location' =>  $request->location,
+            'votes_total' => 0,
+            'votes_true' => 0
+        ];
 
-        //TODO figure this shit out
-        $data = $request->all();
-        $data->user_id = Auth::guard('api')->id();
-        return Site::create($data);
+        $result = array();
+
+        if (Site::create($data)){
+            $result['success'] = 1;
+        } else {
+            $result['success'] = 0;
+        }
+
+        return json_encode($result);
 
     }
 

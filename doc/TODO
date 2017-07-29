@@ -6,3 +6,4 @@ set up admin interface
 complete api
 	user auth stuff
 	
+consider making it user-less. although this would eliminate the possibility of rewards for posting lots of places. 

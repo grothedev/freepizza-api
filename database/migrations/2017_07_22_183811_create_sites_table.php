@@ -27,8 +27,8 @@ class CreateSitesTable extends Migration
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
             */
 
-            $table->integer('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            //$table->integer('user_id')->unsigned()->index();
+            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             
             $table->integer('votes_total')->default(0);
             $table->integer('votes_true')->default(0); 
