@@ -6,6 +6,12 @@ site: a place and time where food will be available
 	location
 	proof (image or url)
 
+vote: to prevent duplicate votes
+	id
+	site_id
+	ip
+	true
+
 location: a place (most likely a building on campus)
 	id
 	title
@@ -16,3 +22,4 @@ user: a person who adds new food sites
 	email
 	password
 	reputation (float [0, 1])
+

@@ -1,9 +1,13 @@
 change www password on server
 change DO password
 
-set up admin interface 
 
-complete api
-	user auth stuff
-	
-consider making it user-less. although this would eliminate the possibility of rewards for posting lots of places. 
+it will now be useraccount-less
+
+next steps:
+	start android app with REST calls to sites
+	then add votes table
+	votes with android app
+	polish UI
+
+

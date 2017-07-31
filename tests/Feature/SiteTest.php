@@ -11,8 +11,8 @@ use Carbon\Carbon;
 
 class SiteTest extends TestCase
 {
-    public function testStore()
-    {
+
+    public function testStore(){
         $response = $this->call('POST', 'api/sites', [
         	'food' => 'taco',
         	'info' => 'info',
@@ -25,20 +25,26 @@ class SiteTest extends TestCase
         	'votes_true' => 0
         ]);
 
-		var_dump($response);
+		var_dump( json_encode($response));
 
         $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function testIndex(){
-
+        $response = $this->call('GET', 'api/sites');
+        var_dump( json_encode($response));
+        $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function testShow(){
-
+        $response = $this->call('GET', 'api/sites/2');
+        var_dump( json_encode($response));
+        $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function testDelete(){
-        
+        $response = $this->call('DELETE', 'api/sites/4');
+        var_dump( json_encode($response));
+        $this->assertEquals(200, $response->getStatusCode());
     }
 }

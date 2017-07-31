@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Site;
+use App\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-use Auth;
-
-class SiteController extends Controller
+class VoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $response = Site::all();
-        return json_encode($response);
+        //probably unused
     }
 
     /**
@@ -27,7 +25,7 @@ class SiteController extends Controller
      */
     public function create()
     {
-        //not used in API
+        //unused
     }
 
     /**
@@ -38,56 +36,58 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
+        //TODO make sure no dupe votes
+        //TODO update vals on sites table 
         $this->validate($request, [
-            'food' => 'required|max:255|min:1',
-            'info' => 'required|max:2048|min:1',
-            'day' => 'required',
-            'start' => 'required',
-            'end' => 'required',
-            'location' => 'required|max:512'
+            'true' => 'required',
+            'ip' => 'required',
+            'site_id' => 'required',
+            
         ]);
 
         $data = [
-            'food' => $request->food,
-            'info' => $request->info,
-            'day' => $request->day,
-            'start' => $request->start,
-            'end' => $request->end,
-            'location' =>  $request->location,
-            'votes_total' => 0,
-            'votes_true' => 0
+            'true' => $request->true,
+            'ip' => $request->ip,
+            'site_id' => $request->site_id,
         ];
+
+        $checkDupe = DB::table('votes')->where('site_id', $data['site_id'])->where('ip', $data['ip'])->value('site_id');
 
         $result = array();
 
-        if (Site::create($data)){
-            $result['success'] = 1;
+        if (sizeof($checkDupe) == 0){
+            if (Vote::create($data)){
+                $result['success'] = 1;
+            } else {
+                $result['success'] = 0;
+            }
         } else {
             $result['success'] = 0;
+            $result['dupe'] = True;
+            $result['dupe'] = $checkDupe;
         }
 
         return json_encode($result);
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Site  $site
+     * @param  \App\Vote  $vote
      * @return \Illuminate\Http\Response
      */
-    public function show(Site $site)
+    public function show(Vote $vote)
     {
-        return Site::findOrFail($site);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Site  $site
+     * @param  \App\Vote  $vote
      * @return \Illuminate\Http\Response
      */
-    public function edit(Site $site)
+    public function edit(Vote $vote)
     {
         //
     }
@@ -96,10 +96,10 @@ class SiteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Site  $site
+     * @param  \App\Vote  $vote
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Site $site)
+    public function update(Request $request, Vote $vote)
     {
         //
     }
@@ -107,17 +107,11 @@ class SiteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Site  $site
+     * @param  \App\Vote  $vote
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Site $site)
+    public function destroy(Vote $vote)
     {
-        $response = array();
-        if (Site::destroy($site->id)){
-            $response['success'] = 1;
-        } else {
-            $response['success'] = 0;
-        }
-        return $response;
+        //
     }
 }

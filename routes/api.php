@@ -16,3 +16,4 @@ use Illuminate\Http\Request;
 
 Route::resource('sites', 'SiteController');
 Route::resource('users', 'UserController');
+Route::resource('votes', 'VoteController');
