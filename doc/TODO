@@ -5,9 +5,15 @@ change DO password
 it will now be useraccount-less
 
 next steps:
-	start android app with REST calls to sites
-	then add votes table
+	complete vote api
 	votes with android app
-	polish UI
+	show ratio on list
+	handle API misuse
+	put about page in android app
+	
+	
+curl stuff:
 
-
+curl --data "true=1&site_id=32" http://gdev.ddns.net:8000/api/votes
+	
+cur http://gdev.ddns.net:8000/api/votes/32

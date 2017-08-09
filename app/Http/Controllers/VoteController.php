@@ -40,14 +40,13 @@ class VoteController extends Controller
         //TODO update vals on sites table 
         $this->validate($request, [
             'true' => 'required',
-            'ip' => 'required',
             'site_id' => 'required',
             
         ]);
 
         $data = [
             'true' => $request->true,
-            'ip' => $request->ip,
+            'ip' => $request->ip(),
             'site_id' => $request->site_id,
         ];
 
@@ -64,7 +63,6 @@ class VoteController extends Controller
         } else {
             $result['success'] = 0;
             $result['dupe'] = True;
-            $result['dupe'] = $checkDupe;
         }
 
         return json_encode($result);
@@ -73,12 +71,13 @@ class VoteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Vote  $vote
+     * @param  integer       site_id
      * @return \Illuminate\Http\Response
      */
-    public function show(Vote $vote)
+    public function show($site_id)
     {
-        //
+        $votes = DB::table('votes')->where('site_id', $site_id);
+        return $votes->first()->ip . '\n' . sizeof($votes); //TODO finish this
     }
 
     /**
