@@ -5,8 +5,6 @@ change DO password
 it will now be useraccount-less
 
 next steps:
-	complete vote api
-	show ratio on list
 	handle API misuse
 	put about page in android app
 	

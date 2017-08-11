@@ -54,8 +54,6 @@ class SiteController extends Controller
             'start' => $request->start,
             'end' => $request->end,
             'location' =>  $request->location,
-            'votes_total' => 0,
-            'votes_true' => 0
         ];
 
         $result = array();

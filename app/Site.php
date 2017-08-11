@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Site extends Model
 {
     protected $fillable = [
-    	'food', 'info', 'day', 'start', 'end', 'location', 'prob_exists'
+    	'food', 'info', 'day', 'start', 'end', 'location'
     ];
 
     public function user(){
