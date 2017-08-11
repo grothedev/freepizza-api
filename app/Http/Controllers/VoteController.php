@@ -15,7 +15,8 @@ class VoteController extends Controller
      */
     public function index()
     {
-        //probably unused
+        $result = Vote::all();
+        return json_encode($result);
     }
 
     /**
@@ -57,8 +58,22 @@ class VoteController extends Controller
         if (sizeof($checkDupe) == 0){
             if (Vote::create($data)){
                 $result['success'] = 1;
+
+                //updating the percentage on that site
+                $votesTotal = DB::table('votes')->where('site_id', $data['site_id'])->get();
+                $votesTrue = DB::table('votes')->where('site_id', $data['site_id'])->where('true', 1)->get();
+                $p = sizeof($votesTrue) / sizeof($votesTotal);
+
+                //var_dump($votesTotal);
+
+                $result['total'] = sizeof($votesTotal);
+                $result['true'] = sizeof($votesTrue);
+
+                DB::table('sites')->where('id', $data['site_id'])->update(['prob_exists' => $p]);
+
             } else {
                 $result['success'] = 0;
+                $result['msg'] = 'there was an error adding the new vote to the database';
             }
         } else {
             $result['success'] = 0;

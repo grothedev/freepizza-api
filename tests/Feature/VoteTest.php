@@ -18,43 +18,32 @@ class VoteTest extends TestCase
     public function testStore()
     {
         $response = $this->call('POST', 'api/votes', [
-        	'ip' => Request::ip(),
         	'true' => True,
         	'site_id' => 3
         	
         ]);
 
-		//var_dump( json_encode($response));
+		var_dump( json_encode($response));
 
         $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function testDupe(){
     	$response = $this->call('POST', 'api/votes', [
-        	'ip' => Request::ip(),
         	'true' => True,
         	'site_id' => 3
         	
         ]);
 
         $response2 = $this->call('POST', 'api/votes', [
-        	'ip' => Request::ip(),
         	'true' => True,
         	'site_id' => 3
         	
         ]);
 
         $response3 = $this->call('POST', 'api/votes', [
-        	'ip' => 'newip',
         	'true' => True,
-        	'site_id' => 3
-        	
-        ]);
-
-        $response4 = $this->call('POST', 'api/votes', [
-        	'ip' => Request::ip(),
-        	'true' => True,
-        	'site_id' => 4
+        	'site_id' => 33
         	
         ]);
 
@@ -63,8 +52,6 @@ class VoteTest extends TestCase
         $this->assertEquals(200, $response2->getStatusCode());
         var_dump(json_encode($response2));
         $this->assertEquals(200, $response3->getStatusCode());
-        var_dump(json_encode($response3));
-        $this->assertEquals(200, $response4->getStatusCode());
-    	var_dump(json_encode($response4));
+    	var_dump(json_encode($response3));
     }
 }

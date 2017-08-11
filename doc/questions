@@ -1,0 +1,3 @@
+Questions:
+
+1. should i have the votes for each site saved as a column on the sites table? i'm thinking no, because it would be redundant data. however, it would add a little more work to client operations when getting the sites and votes. actually no, i will have a column on sites that represents the percentage. and it will be updated each time a vote is added. 
