@@ -29,4 +29,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/latest-apk', function(){
+	return response()->download('storage/apks/fp-testing.apk');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
