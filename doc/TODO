@@ -5,8 +5,28 @@ change DO password
 it will now be useraccount-less
 
 next steps:
+	plan out detailed next steps
 	handle API misuse
-	put about page in android app
+	deploy API
+	implement auto-delete
+	write API spec
+	ads
+	write out description and future plan, and invite people to do graphics design and ios app
+	
+	next phase: multiple colleges, building search
+	
+detailed next steps:				  ___
+	deploy API							 |
+	implement auto-delete				 |- done by end of tues
+	set up production git thing		     |
+	begin testing (with other people) ___|
+	implement ads
+	API misuse and finishing touches
+	write API spec
+	write out a plan for github
+	add colleges database along with settings infrastructure
+		each site now has college associated with it
+	add saveable locations (again, each location has college associated with it)
 	
 	
 curl stuff:

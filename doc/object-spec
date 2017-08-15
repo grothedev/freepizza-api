@@ -1,10 +1,12 @@
 site: a place and time where food will be available
 	id
-	time
+	date
+	start time
+	end time
 	food
 	other info (ex: restrictions)
 	location
-	proof (image or url)
+	probability of existence (ratio of true/total votes)
 
 vote: to prevent duplicate votes
 	id
@@ -16,7 +18,8 @@ location: a place (most likely a building on campus)
 	id
 	title
 
-user: a person who adds new food sites
+
+user: a person who adds new food sites (currently userless, idk if i will implement users)
 	id
 	name
 	email

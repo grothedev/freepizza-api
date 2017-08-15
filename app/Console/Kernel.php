@@ -24,8 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        //deleting outdated sites
+        $schedule->call(function(){
+            $outdatedSites = DB::table('sites')->where('day', '<', Carbon::today())->delete();
+        })->daily();
     }
 
     /**

@@ -1,18 +1,32 @@
+What's implemented now:
+GET sites : returns list of all sites currently active (happening now or in future)
+GET sites/{id} : returns that specific site
+GET votes : returns list of all votes
 
-common user usage:
+POST sites : adds a new site
+	required fields:
+		string food
+		string info
+		string day  (format: 'yyyy-mm-dd')
+		string start  (start time. format: 'hh:mm:ss' 24hr)
+		string end  (end time. format: 'hh:mm:ss' 24hr)
+		string location  
+POST votes : makes a new vote
+	required fields:
+		int site_id
+		boolean true   (i should probably change the name of this column)
+
+
+Eventual complete API:
 GET sites : returns list of all sites currently active (happening now or in future)
 GET sites/{id} : returns that specific site
 GET sites/locations/{id} : returns all sites at that location
-GET users/{id} : returns data of that user (ex: to see reputation)
-GET users : returns list of all users
-
-
-poster usage: all of these need the auth middleware
+	
 POST sites : adds a new site
 POST locations : adds a new location
-POST users : creates user account
-DELETE users/{id} : deletes user
-PUT users/{id} : updates user info
 DELETE sites/{id} : deletes site
+DELETE locations/{id} : deletes location
+PUT sites/{id} : updates site info
+PUT locations/{id} : updates location info
 
 
