@@ -15,9 +15,7 @@ next steps:
 	
 	next phase: multiple colleges, building search
 	
-detailed next steps:				  ___
-	implement auto-delete				 |- done by end of tues
-	begin testing (with other people) ___|
+detailed next steps:
 	implement ads
 	API misuse and finishing touches
 	write API spec
